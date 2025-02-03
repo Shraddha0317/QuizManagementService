@@ -43,6 +43,24 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-web</artifactId>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.messaging</groupId>-->
+<!--			<artifactId>spring-messaging</artifactId>-->
+<!--			&lt;!&ndash; Let Spring Boot handle the version &ndash;&gt;-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-messaging</artifactId>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

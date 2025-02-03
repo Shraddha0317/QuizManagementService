@@ -12,7 +12,10 @@ public class Quiz {
 
 
     @Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private String id;
+    //private String QuizId;
     private String title;
     private List<Question> questions;
 }

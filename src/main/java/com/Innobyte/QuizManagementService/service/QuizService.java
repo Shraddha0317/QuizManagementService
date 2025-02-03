@@ -1,6 +1,7 @@
 package com.Innobyte.QuizManagementService.service;
 
 
+import com.Innobyte.QuizManagementService.entities.Question;
 import com.Innobyte.QuizManagementService.entities.Quiz;
 import com.Innobyte.QuizManagementService.repositories.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,13 @@ public class QuizService {
 
 
     public Quiz createQuiz(Quiz quiz) {
-        return quizRepository.save(quiz);
+        Quiz savedQuiz = quizRepository.save(quiz); // Save quiz first
+
+//        for (Question question : savedQuiz.getQuestions()) {
+//            question.setQuizId(savedQuiz.getId());  // Assign quizId to each question
+//        }
+
+        return quizRepository.save(savedQuiz); // Save again to update questions
     }
 
 
@@ -28,6 +35,10 @@ public class QuizService {
 
     public Optional<Quiz> getQuizById(String id) {
         return quizRepository.findById(id);
+    }
+
+    public Optional<Quiz> getQuizByTitle(String title) {
+        return quizRepository.findByTitle(title);
     }
 
     public Quiz updateQuiz(String id, Quiz updatedQuiz) {
@@ -42,6 +53,7 @@ public class QuizService {
     public void deleteQuiz(String id) {
         quizRepository.deleteById(id);
     }
+
 
 }
 

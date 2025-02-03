@@ -17,6 +17,8 @@ public class AdminController {
 
     @PostMapping
     public ResponseEntity<Quiz> createQuiz(@RequestBody Quiz quiz) {
+        if(null == quiz.getId() && quiz.getId().isEmpty()){}
+        //System.out.println(quiz);
         return ResponseEntity.ok(quizService.createQuiz(quiz));
     }
 
@@ -28,6 +30,12 @@ public class AdminController {
     @GetMapping("/{id}")
     public ResponseEntity<Quiz> getQuizById(@PathVariable String id) {
         Optional<Quiz> quiz = quizService.getQuizById(id);
+        return quiz.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/title")
+     public ResponseEntity<Quiz> getQuizByTitle(@RequestParam String title){
+        Optional<Quiz> quiz=quizService.getQuizByTitle(title);
         return quiz.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
